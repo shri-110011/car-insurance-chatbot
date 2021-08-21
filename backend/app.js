@@ -6,7 +6,7 @@ const chatRouter = require('./chat/chat.router');
 const carInsuranceRouter  = require('./car-insurance/car-insurance.router');
 require('dotenv').config();
 
-app.set('port', process.env.Port || 3000);
+app.set('port', process.env.PORT || 3000);
 
 app.use(express.json());
 
@@ -31,6 +31,6 @@ app.get("/*", (req, res)=>{
 
 //Code to create the local server
 app.listen(app.get("port"), ()=>{
-    console.log(process.env.Server_Port);
+    console.log(process.env.PORT);
     console.log("Express server running on port "+app.get('port'));
 });
