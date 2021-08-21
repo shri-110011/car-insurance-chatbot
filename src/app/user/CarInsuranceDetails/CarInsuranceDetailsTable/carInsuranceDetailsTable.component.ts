@@ -18,6 +18,8 @@ export class CarInsuranceDetailsTableComponent implements OnInit{
         if(utcDate === null){
             return utcDate;
         }
+        console.log("######################");
+        console.log(new Date().toString().toLocaleString());
         return new Date(utcDate).toString().slice(0, 33);
     } 
 }

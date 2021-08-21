@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Secret_Key=2c16236eb84f4ff18356c89f76845f74738d7f490a4fd47f047bace4dbca8e60a301ca8a1a0cbd5c5a8bcaf27bca3c6771511105bae90217d75a0b16bb7491b1
+Host=localhost
+User=root
+Pwd=siddu
+DB=chatbot
+MySQL_Port=3306
+Admin_User=abc121@gmail.com
+tokenExpiresIn=600
