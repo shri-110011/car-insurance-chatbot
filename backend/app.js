@@ -31,5 +31,6 @@ app.get("/*", (req, res)=>{
 
 //Code to create the local server
 app.listen(app.get("port"), ()=>{
+    console.log(process.env.Server_Port);
     console.log("Express server running on port "+app.get('port'));
 });
