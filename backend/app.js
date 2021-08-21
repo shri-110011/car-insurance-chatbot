@@ -6,7 +6,7 @@ const chatRouter = require('./chat/chat.router');
 const carInsuranceRouter  = require('./car-insurance/car-insurance.router');
 require('dotenv').config();
 
-app.set('port', process.env.Server_Port || 3001);
+app.set('port', process.env.Port || 3000);
 
 app.use(express.json());
 
