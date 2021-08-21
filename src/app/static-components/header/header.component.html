@@ -1,0 +1,34 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" 
+                    class="navbar-toggle" 
+                    data-toggle="collapse" 
+                    data-target="#myNavbar"
+            >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a routerLink="/" class="navbar-brand">XYZ Car Insurance Company</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/home" >Home</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="userLoggedIn && !isAdmin"><a routerLink="/user">Welcome</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="userLoggedIn && isAdmin"><a routerLink="/admin">Dashboard</a></li>
+                <li routerLinkActive="active"><a routerLink="/chatbot">Chatbot</a></li>
+                <li routerLinkActive="active"><a routerLink="/about">About Us</a></li>
+                <li routerLinkActive="active" ><a routerLink="/contacts">Contacts</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" *ngIf="!userLoggedIn">
+                <!-- <li><a  routerLink="/login">Login</a></li> -->
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/registration">SignUp</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" *ngIf="userLoggedIn">
+                <li class="navbar-text">Welcome {{ userName }}</li>
+                <li><a  class="logout" (click)="onLogout()">Logout</a></li>
+            </ul>
+        </div> 
+    </div>
+</nav>

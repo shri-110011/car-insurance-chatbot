@@ -1,0 +1,32 @@
+.chatbot-msg-block{
+    width: 60%;
+    float: left;
+    clear: right;
+    display: flex;
+    margin: 5px;
+}
+.chatbot-msg-text{
+    background-color: #57c686;
+    padding: 5px;
+}
+.msg-time{
+    float: right;
+    margin-left: 5px;
+}
+.topics{
+    text-decoration: none;
+    color: white;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #4742ac;
+    padding: 5px;
+}
+.topics:hover{
+    cursor: pointer;
+    background-color: #2823b0;
+}
+#options{
+    display: flex;
+    flex-wrap: wrap;
+}

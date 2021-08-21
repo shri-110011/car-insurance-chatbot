@@ -1,0 +1,38 @@
+.logout{
+    cursor: pointer;
+}
+@media (min-width: 768px){
+    .navbar {
+        border-radius: 0px;
+    }
+}
+@media (max-width: 341px){
+    .navbar-brand {
+        font-size: 14px;
+    }
+}
+.navbar-inverse .navbar-nav>li.active>a {
+    background-color: red;
+    border-radius: 3px;
+}
+.navbar-inverse .navbar-nav>li:hover>a {
+    background-color: red;
+    border-radius: 3px;
+}
+.navbar-inverse .navbar-brand {
+    color: #ccb619;
+}
+/* .navbar-inverse {
+    background-color:rgb(41, 49, 59);
+}
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 0px;
+    }
+}
+.navbar-brand {
+   color: ivory;
+}
+.navbar-brand:hover{
+    color: rgb(245, 182, 110);
+} */

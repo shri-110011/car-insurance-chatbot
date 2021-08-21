@@ -1,0 +1,11 @@
+.card{
+    border: 1px solid black;
+    height: 300px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: #3aafa9;
+    /* background-image: linear-gradient(to bottom, #3aafa9); */
+    border-radius: 15px;
+    font-weight: bold;
+}

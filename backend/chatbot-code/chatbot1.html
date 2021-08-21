@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot HomePage</title>
+    <!-- <link rel="stylesheet" href="styles.css"></link> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>   
+    <style>
+        #chat-window{
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-radius: 10px;
+            top: 40px;
+        }
+        #chat-screen{
+            margin: 5px;
+            padding: 5px;
+            height: 75%;
+            border: 1px solid black;
+            overflow: auto;
+        }
+        #chat-console{
+            margin: 5px;
+            height: 20%;
+            border: 1px solid black;
+            display: flex; 
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        #chat-field{
+            width: 85%;
+            max-height: 90%;
+            margin: 2px;
+            display: flex;
+            /* border: 1px solid black; */
+        }
+        #ask-btn{
+            position: absolute;
+            right:15px;
+        }
+        @media (max-width: 490px) {
+            body{
+                width: 500px;
+            }
+        }
+
+        .user-msg-block{
+            width: 55%;
+            float: right;
+            clear: right;
+            display: flex;
+            margin: 5px;
+            flex-direction: row-reverse;
+        }
+        .user-msg-text{
+            background-color: #4b99f1;
+            padding: 5px;
+        }
+        .chatbot-msg-block{
+            width: 60%;
+            float: left;
+            clear: right;
+            display: flex;
+            margin: 5px;
+        }
+        .chatbot-msg-text{
+            background-color: #57c686;
+            padding: 5px;
+        }
+        .msg-time{
+            float: right;
+            margin-left: 5px;
+        }
+        .topics{
+            text-decoration: none;
+            color: white;
+            margin: 5px;
+            border: 1px solid black;
+            border-radius: 8px;
+            background-color: #4742ac;
+            padding: 5px;
+        }
+        .topics:hover{
+            cursor: pointer;
+            background-color: #2823b0;
+        }
+        #options{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <!-- <div class="custom-div">
+                
+                </div> -->
+                
+                <div id="chat-window">
+                    <div id="chat-screen">
+                        <!-- Dummy Messages -->
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. This is some text. This is some text. This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div id="chat-console"> 
+                        <div id="chat-field">
+                            <textarea id = "user-msg" name="user-msg" value="" style="width:100%; margin:2px; padding:5px; resize:none"></textarea> 
+                        </div>
+                        <div id="ask-btn">
+                            <button type="button" class="btn btn-primary">Ask</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 
+    <script>
+        $(document).ready(function(){
+
+            var chatScreen = document.getElementById("chat-screen");
+
+            $("#ask-btn").click(function(){
+                var userMsg = document.getElementById("user-msg")
+                var userSentMsg = userMsg.value;
+                var u = new Date();
+                console.log(userSentMsg);
+                console.log("The message has: "+userSentMsg.length+" characters");
+
+                
+                var userMsgBlock = document.createElement("div");
+                userMsgBlock.setAttribute("class", "user-msg-block");
+
+                var userMsgText = document.createElement("div");
+                userMsgText.setAttribute("class", "user-msg-text");
+
+                var userMsgTextContent = document.createTextNode(userSentMsg);
+
+                
+                var userMsgTime = ""; 
+
+                if(u.getMinutes()<10)
+                    userMsgTime = u.getHours()+":0"+u.getMinutes();
+                else
+                userMsgTime = u.getHours()+":"+u.getMinutes();
+
+                var userMsgTimeOuterContainer = document.createElement("span");
+                userMsgTimeOuterContainer.setAttribute("class", "msg-time");
+
+                var userMsgTimeInnerContainer = document.createElement("sub");
+
+                var userMsgTimeInnerContainerContent = document.createTextNode(userMsgTime);
+
+                userMsgTimeInnerContainer.appendChild(userMsgTimeInnerContainerContent);
+
+                userMsgTimeOuterContainer.appendChild(userMsgTimeInnerContainer);
+                //console.log(userMsgTimeOuterContainer);
+
+                userMsgTextContent = document.createTextNode(userSentMsg);
+
+                userMsgText.appendChild(userMsgTextContent);
+                userMsgText.appendChild(userMsgTimeOuterContainer);
+
+                userMsgBlock.appendChild(userMsgText);
+
+                chatScreen.appendChild(userMsgBlock);
+
+                //console.log(userMsgText);
+                //console.log(userMsgTextContent);
+
+                //---------------------------------------------------
+
+                var serializedChat = $('#user-msg').serialize();
+                console.log(serializedChat);
+  
+                sendRequest("/postChat", serializedChat);
+                userMsg.value="";//To clear the chatField
+            });
+
+            //Code to get the initial intro message by the bot
+            setTimeout(()=>{
+                sendRequest("/getResponseForTopicsChosen", "need=intro");
+            }, 1000);
+
+            //Code to extract and send the id of the selected option given by the bot
+            //$(elementById).click() won't work here
+            $(document).on('click', ".topics", (e)=>{
+                setTimeout(()=>{
+                    sendRequest("/getResponseForTopicsChosen", "need="+e.target.id);
+                    console.log("ok");
+                    console.log(e.target.id);
+                }, 1000);
+            });
+                
+                
+               
+           
+            function sendRequest(urlData, postData){
+                $.ajax(
+                    {
+                        url: urlData,
+                        type: "post",
+                        data: postData,
+                        success: function(res){
+                            console.log("Requested posted successfully");
+                            //Chatbot message testing
+
+                            //var chatbotMsg = "Welcome back! How may I help you today?";
+
+                            
+
+                            //var chatbotMsgTextContent = document.createTextNode(chatbotMsg);
+
+                            console.log(res);
+                            
+                            res.forEach((element, i) => {
+                                //This setTimeout() has been used to set delay 
+                                setTimeout(()=>{
+                                    var chatbotMsgBlock = document.createElement("div");
+                                    chatbotMsgBlock.setAttribute("class", "chatbot-msg-block");
+
+                                    var chatbotMsgText = document.createElement("div");
+                                    chatbotMsgText.setAttribute("class", "chatbot-msg-text");
+
+                                    var chatbotMsgTimeOuterContainer = document.createElement("span");
+                                    chatbotMsgTimeOuterContainer.setAttribute("class", "msg-time");
+
+                                    var chatbotMsgTimeInnerContainer = document.createElement("sub");
+
+                                    var c = new Date();
+
+                                    var chatbotMsgTime = ""; 
+
+                                    if(c.getMinutes()<10)
+                                    chatbotMsgTime = c.getHours()+":0"+c.getMinutes();
+                                    else
+                                    chatbotMsgTime = c.getHours()+":"+c.getMinutes();
+
+                                    var chatbotMsgTimeInnerContainerContent = document.createTextNode(chatbotMsgTime);
+
+                                    chatbotMsgTimeInnerContainer.appendChild(chatbotMsgTimeInnerContainerContent);
+
+                                    chatbotMsgTimeOuterContainer.appendChild(chatbotMsgTimeInnerContainer);
+
+                                    chatbotMsgText.innerHTML = element;
+
+                                    chatbotMsgText.appendChild(chatbotMsgTimeOuterContainer);
+
+                                    chatbotMsgBlock.appendChild(chatbotMsgText);
+
+                                    chatScreen.appendChild(chatbotMsgBlock);
+
+                                    chatbotMsgBlock.scrollIntoView();// This is to bring the latest chat b/w the user and the bot into view so that one doesn't have to scroll down to see that
+                                
+                                    console.log(element);
+                                }, 500*i);
+                            });      
+                        }
+                    }
+                );
+            }
+        });
+    </script> -->
+</body>
+</html>

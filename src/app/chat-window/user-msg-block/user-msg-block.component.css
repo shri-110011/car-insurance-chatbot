@@ -1,0 +1,16 @@
+.user-msg-block{
+    width: 55%;
+    float: right;
+    clear: right;
+    display: flex;
+    margin: 5px;
+    flex-direction: row-reverse;
+}
+.user-msg-text{
+    background-color: #4b99f1;
+    padding: 5px;
+}
+.msg-time{
+    float: right;
+    margin-left: 5px;
+}

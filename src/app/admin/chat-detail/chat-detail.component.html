@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-1 table-responsive" style="overflow-y: scroll; height: 300px; border: 1px solid black;">
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Intent</th>
+                    <th>No of Chats</th>
+                    <th>Percentage %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let chatDetail of chatDetails, let i = index ">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ chatDetail.chatIntent }}</td>
+                    <td>{{ chatDetail.chatCount }}</td>
+                    <td>{{ getChatPercentage(chatDetail.chatCount) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3 col-md-offset-1">
+        <h3>Total chats asked: {{ totalChats }}</h3>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,13 @@
+<div class="container" *ngIf="!isThereAnyDetails">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>You have not applied for any car insurance yet! </h3>
+        </div>
+    </div>
+</div>
+
+<app-car-insurance-details-table 
+    *ngFor="let myDetail of myDetails"
+    [insuranceDetail]="myDetail"
+>
+</app-car-insurance-details-table>

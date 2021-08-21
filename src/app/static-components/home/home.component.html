@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+            <div class="col-sm-6 home-intro">
+                <h3>Welcome to XYZ Car Insurance Company</h3>
+                <hr>
+                <p>
+                    Is your car insured? If no, then this is the time to ponder over your 
+                    car & personal safety. 
+                </p>
+                <p>
+                    Taking a car insurance can prevent you and and your car against any hefty 
+                    losses caused by car-accidents & thefts.
+                </p>
+                <p>
+                    If you want to know more about our services, feel free to 
+                    interact with our <b>Chatbot</b>(link in the navigation bar).
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <img src="/images/car-crash.jpg" alt="Car crash image" class="car-crash-img img-responsive">
+            </div>
+    </div>
+    <div class="row" *ngIf="!userLoggedIn">
+        <div class="col-sm-12">
+            <button 
+                class="btn btn-primary" 
+                routerLink="/login"
+                [queryParams]="{userType: 'user'}"
+            >
+                Login as a user
+            </button>
+            <button 
+                class="btn btn-primary" 
+                routerLink="/login"
+                [queryParams]="{userType: 'admin'}"
+            >
+                Login as an admin
+            </button>
+        </div>
+    </div>
+</div>

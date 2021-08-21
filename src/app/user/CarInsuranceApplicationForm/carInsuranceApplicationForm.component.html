@@ -1,0 +1,336 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <h3 style="text-align: center;">Car Insurance Application Form</h3>
+            <form [formGroup]="insuranceApplication" (ngSubmit)="onSubmit()">
+                <!-- {{ insuranceApplication.value | json }} -->
+                <div class="form-group">
+                    <label for="aadhaar-no">Aadhaar Number</label>
+                    <input 
+                        type="text" 
+                        id="aadhaar-no" 
+                        name="aadhaar-no"
+                        class="form-control"
+                        formControlName="aadhaarNo"
+                    >
+                    <div *ngIf="insuranceApplication.get('aadhaarNo').invalid && insuranceApplication.get('aadhaarNo').touched">
+                        <span 
+                        class="help-text text-danger" 
+                        *ngIf="insuranceApplication.get('aadhaarNo').errors.required"
+                        >
+                        Aadhaar is required!
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('aadhaarNo').errors.pattern"
+                        >
+                            An aadhaar number must contin 12 digits.
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name"
+                        class="form-control"
+                        formControlName="customerName"
+                    >
+                    <div *ngIf="insuranceApplication.get('customerName').invalid && insuranceApplication.get('customerName').touched">
+                        <span 
+                            class="help-text text-danger" 
+                            *ngIf="insuranceApplication.get('customerName').errors.required"
+                        >
+                            Name is required!
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('customerName').errors.pattern"
+                        >
+                            Name can contain only [A-Z, a-z, space character].
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('customerName').errors.minlength || insuranceApplication.get('customerName').errors.maxlength"
+                        >
+                            Name must have a minimum of 3 and a maximum of 30 characters!
+                        </span>
+                    </div>
+                </div>
+                <div formGroupName="address">
+                    <div class="form-group">
+                        <label for="street">Street</label>
+                        <input 
+                            type="text" 
+                            id="street" 
+                            name="street" 
+                            class="form-control" 
+                            formControlName="street"
+                        >
+                        <div *ngIf="insuranceApplication.get('address.street').invalid && insuranceApplication.get('address.street').touched">
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.street').errors.required"
+                            >
+                                Street is required!
+                            </span>
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.street').errors.pattern"
+                            >
+                                Street can contain only alphanumeric characters, dashes and space!
+                            </span>
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.street').errors.minlength || insuranceApplication.get('address.street').errors.maxlength"
+                            >
+                                Street must have a minimum of 7 and a maximum of 50 characters!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input 
+                            type="text" 
+                            id="city" 
+                            name="city" 
+                            class="form-control" 
+                            formControlName="city"
+                        >
+                        <div *ngIf="insuranceApplication.get('address.city').invalid && insuranceApplication.get('address.city').touched">
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.city').errors.required"
+                            >
+                                City is required!
+                            </span>
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.city').errors.pattern"
+                            >
+                                City can contain only alphabets and space!
+                            </span>
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.city').errors.minlength || insuranceApplication.get('address.city').errors.maxlength"
+                            >
+                                City must have a minimum of 4 and a maximum of 35 characters!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="postal-code">Pin Code</label>
+                        <input 
+                            type="text" 
+                            id="postal-code" 
+                            name="postal-code" 
+                            class="form-control" 
+                            formControlName="pincode"
+                        >
+                        <div *ngIf="insuranceApplication.get('address.pincode').invalid && insuranceApplication.get('address.pincode').touched">
+                            <span
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.pincode').errors.required"
+                            >
+                                Pincode is required!
+                            </span>
+                            <span
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.pincode').errors.pattern"
+                            >
+                                Pincode must contain 6 digits!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input 
+                            type="text" 
+                            id="state" 
+                            name="state" 
+                            class="form-control" 
+                            formControlName="state"
+                        >
+                        <div *ngIf="insuranceApplication.get('address.state').invalid && insuranceApplication.get('address.state').touched">
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.state').errors.required"
+                            >
+                                State is required!
+                            </span>
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.state').errors.pattern"
+                            >
+                                State can contain only alphabets and space!
+                            </span>
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.state').errors.minlength || insuranceApplication.get('address.state').errors.maxlength"
+                            >
+                                State must have a minimum of 3 and a maximum of 35 characters!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input 
+                            type="text" 
+                            id="country" 
+                            name="country" 
+                            class="form-control" 
+                            formControlName="country"
+                        >
+                        <div *ngIf="insuranceApplication.get('address.country').invalid && insuranceApplication.get('address.country').touched">
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.country').errors.required"
+                            >
+                                Country is required!
+                            </span>
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.country').errors.pattern"
+                            >
+                                Country can contain only alphabets and space!
+                            </span>
+                            <span 
+                                class="help-text text-danger"
+                                *ngIf="insuranceApplication.get('address.country').errors.minlength || insuranceApplication.get('address.country').errors.maxlength"
+                            >
+                                Country must have a minimum of 5 and a maximum of 35 characters!
+                            </span>
+                        </div>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="aadhaar-no">Phone Number</label>
+                    <input 
+                        type="text" 
+                        id="phone" 
+                        name="phone"
+                        class="form-control"
+                        formControlName="phone"
+                    >
+                    <div *ngIf="insuranceApplication.get('phone').invalid && insuranceApplication.get('phone').touched">
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('phone').errors.required"
+                        >
+                            Phone number is required!.
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('phone').errors.pattern"
+                        >
+                            Phone number must contain 10 digits!
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="aadhaar-no">Email</label>
+                    <input 
+                        type="text" 
+                        id="email" 
+                        name="email"
+                        class="form-control"
+                        formControlName="email"
+                    >
+                    <div *ngIf="insuranceApplication.get('email').invalid && insuranceApplication.get('email').touched">
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('email').errors.required"
+                        >
+                            Email is required!
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('email').errors.email"
+                        >
+                            Invalid email!
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="aadhaar-no">Car Model</label>
+                    <input 
+                        type="text" 
+                        id="car-model" 
+                        name="car-model"
+                        class="form-control"
+                        formControlName="carModel"
+                    >
+                    <div *ngIf="insuranceApplication.get('carModel').invalid && insuranceApplication.get('carModel').touched">
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('carModel').errors.required"
+                        >
+                            Car model name is required!
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('carModel').errors.pattern"
+                        >
+                            Car model name can contain only alphanumeric characters and space!
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('carModel').errors.minlength || insuranceApplication.get('carModel').errors.maxlength"
+                        >
+                            Car model name must have a minimum of 4 and a maximum of 25 characters!
+                        </span>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="aadhaar-no">License Plate Number</label>
+                    <input 
+                        type="text" 
+                        id="lp-no" 
+                        name="lp-no"
+                        class="form-control"
+                        formControlName="licensePlateNo"
+                    >
+                    <div *ngIf="insuranceApplication.get('licensePlateNo').invalid && insuranceApplication.get('licensePlateNo').touched">
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('licensePlateNo').errors.required"
+                        >
+                            License plate number is required!
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('licensePlateNo').errors.pattern"
+                        >
+                            License plate number can contain only alphanumeric characters and space!
+                        </span>
+                        <span 
+                            class="help-text text-danger"
+                            *ngIf="insuranceApplication.get('licensePlateNo').errors.minlength || insuranceApplication.get('licensePlateNo').errors.maxlength"
+                        >
+                            License plate number must contain 6 characters!
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="car-insurance-type">Type of Car Insurance</label>
+                    <select 
+                      id="insurance-typet" 
+                      class="form-control"
+                      name="car-insurance-type"
+                      formControlName="insurancePlan"
+                    >
+                      <option value="third-party">Third Party</option>
+                      <option value="comprehensive">Comprehensive</option>
+                    </select>
+                </div>
+                <p class="help-text text-danger"
+                   *ngIf="insuranceApplication.invalid && insuranceApplication.touched"
+                >
+                    Form is invalid!
+                </p>
+                <button type="submit" class="btn btn-primary" [disabled]="insuranceApplication.invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

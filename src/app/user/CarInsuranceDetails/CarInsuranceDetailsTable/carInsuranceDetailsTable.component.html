@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <table>
+            <!-- ---------------------------------------------------- -->
+                <thead>
+                    <tr>
+                        <th>Insurance Id</th>
+                        <th colspan="2">Name of the Insurance Holder</th>
+                        <th>Aadhaar No</th>
+                        <th colspan="2">Insured Vehicle License Plate No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ insuranceDetail.insuranceId }}</td>
+                        <td colspan="2">{{ insuranceDetail.customerName }}</td>
+                        <td>{{ insuranceDetail.aadhaarNo }}</td>
+                        <td colspan="2">{{ insuranceDetail.licensePlateNo }}</td>
+                    </tr>
+                </tbody>
+            <!-- ---------------------------------------------------- -->
+                <thead>
+                    <tr>
+                        <th>Insured Vehicle Model</th>
+                        <th colspan="2">Insurence Applied On</th>
+                        <th>Insurance Plan</th>
+                        <th>Claim Status</th>
+                        <th>Claim Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ insuranceDetail.carModel }}</td>
+                        <td colspan="2">{{ getProperDate(insuranceDetail.insuranceAppliedDate) }}</td>
+                        <td>{{ insuranceDetail.insurancePlan }}</td>
+                        <td>{{ insuranceDetail.claimStatus }}</td>
+                        <td>{{ getProperDate(insuranceDetail.insuranceClaimedDate) }}</td>
+                    </tr>
+                </tbody>
+            <!-- ---------------------------------------------------- -->
+                <thead>
+                    <tr>
+                        <th colspan="6" style="text-align: center;">Insurer's Address and Contact Details</th>
+                    </tr>
+                </thead>
+            <!-- ---------------------------------------------------- -->
+                <thead>
+                    <tr>
+                        <th colspan="2">Street</th>
+                        <th colspan="2">City</th>
+                        <th colspan="2">Pincode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">{{ insuranceDetail.street }}</td>
+                        <td colspan="2">{{ insuranceDetail.city }}</td>
+                        <td colspan="2">{{ insuranceDetail.pincode }}</td>
+                    </tr>
+                </tbody>
+            <!-- ---------------------------------------------------- -->
+                <thead>
+                    <tr>
+                        <th colspan="2">State</th>
+                        <th colspan="2">Country</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">{{ insuranceDetail.state }}</td>
+                        <td colspan="2">{{ insuranceDetail.country }}</td>
+                        <td>{{ insuranceDetail.email }}</td>
+                        <td>{{ insuranceDetail.phone }}</td>     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<hr>

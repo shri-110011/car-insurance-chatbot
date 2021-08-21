@@ -1,0 +1,7 @@
+<div class="chatbot-msg-block" #chatbotMsgBlock  (click)="onOptionSelected($event)">
+    <!-- Note: property binding with innerHtml has been used to make sure that any html tags in the chatbot's message have their repective effects. -->
+    <div class="chatbot-msg-text">
+        <span [innerHtml] = "chatbotMsg"></span>
+        <span class="msg-time"><sub>{{ msgTime }}</sub></span>
+    </div>
+</div>

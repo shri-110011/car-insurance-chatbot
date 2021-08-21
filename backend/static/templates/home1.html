@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot HomePage</title>
+    <link rel="stylesheet" href="/public/css/styles.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>   
+</head>
+<body>
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <!-- <div class="custom-div">
+                
+                </div> -->
+                <div id="chat-window">
+                    <div id="chat-screen">
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <div class="user-msg-block">
+                            <div class="user-msg-text">
+                                This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. <span class="msg-time"><sub>16:22</sub></span>
+                            </div>
+                        </div>
+                        <!-- <span>This is some text. </span> -->
+                    
+                    </div>
+                    <div id="chat-console"> 
+                        <div id="chat-field">
+                            <textarea id = "user-msg" value="" style="width:100%; margin:2px; padding:5px; resize:none"></textarea> 
+                        </div>
+                        <div id="ask-btn"><button type="button" onclick="getMsg();">Ask</button></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var x1 = document.getElementById("chat-window");
+        var x2 = document.getElementById("chat-screen");
+        var x3 = document.getElementById("chat-console");
+        var x4 = document.getElementById("chat-field");
+
+        console.log("chat-window offsetHeight: "+x1.offsetHeight);
+        console.log("chat-window x1.clientHeight: "+x1.clientHeight);
+
+        console.log("chat-screen offsetHeight: "+x2.offsetHeight);
+        console.log("chat-screen x1.clientHeight: "+x2.clientHeight);
+
+        console.log("chat-console offsetHeight: "+x3.offsetHeight);
+        console.log("chat-console x1.clientHeight: "+x3.clientHeight);
+
+        console.log("chat-field offsetHeight: "+x4.offsetHeight);
+        console.log("chat-field x1.clientHeight: "+x4.clientHeight);
+
+
+
+        function getMsg(){
+            var userMsg = document.getElementById("user-msg")
+            var userSentMsg = userMsg.value;
+            var u = new Date();
+            console.log(userSentMsg);
+            console.log("The message has: "+userSentMsg.length+" characters");
+
+            
+            var userMsgBlock = document.createElement("div");
+            userMsgBlock.setAttribute("class", "user-msg-block");
+
+            var userMsgText = document.createElement("div");
+            userMsgText.setAttribute("class", "user-msg-text");
+
+            var userMsgTextContent = document.createTextNode(userSentMsg);
+
+            
+            var userMsgTime = ""; 
+
+            if(u.getMinutes()<10)
+                userMsgTime = u.getHours()+":0"+u.getMinutes();
+            else
+            userMsgTime = u.getHours()+":"+u.getMinutes();
+
+            var userMsgTimeOuterContainer = document.createElement("span");
+            userMsgTimeOuterContainer.setAttribute("class", "msg-time");
+
+            var userMsgTimeInnerContainer = document.createElement("sub");
+
+            var userMsgTimeInnerContainerContent = document.createTextNode(userMsgTime);
+
+            userMsgTimeInnerContainer.appendChild(userMsgTimeInnerContainerContent);
+
+            userMsgTimeOuterContainer.appendChild(userMsgTimeInnerContainer);
+            //console.log(userMsgTimeOuterContainer);
+
+            userMsgTextContent = document.createTextNode(userSentMsg);
+
+            userMsgText.appendChild(userMsgTextContent);
+            userMsgText.appendChild(userMsgTimeOuterContainer);
+
+            userMsgBlock.appendChild(userMsgText);
+            var chatScreen = document.getElementById("chat-screen");
+
+            chatScreen.appendChild(userMsgBlock);
+
+            //console.log(userMsgText);
+            //console.log(userMsgTextContent);
+
+            userMsg.value="";//To clear the chatField
+
+
+
+            //---------------------------------------------------
+            //Chatbot message testing
+
+            var chatbotMsg = "Welcome back! How may I help you today?";
+
+            var chatbotMsgBlock = document.createElement("div");
+            chatbotMsgBlock.setAttribute("class", "chatbot-msg-block");
+
+            var chatbotMsgText = document.createElement("div");
+            chatbotMsgText.setAttribute("class", "chatbot-msg-text");
+
+            var chatbotMsgTextContent = document.createTextNode(chatbotMsg);
+
+
+            var chatbotMsgTimeOuterContainer = document.createElement("span");
+            chatbotMsgTimeOuterContainer.setAttribute("class", "msg-time");
+
+            var chatbotMsgTimeInnerContainer = document.createElement("sub");
+
+            var c = new Date();
+
+            var chatbotMsgTime = ""; 
+
+            if(c.getMinutes()<10)
+               chatbotMsgTime = c.getHours()+":0"+c.getMinutes();
+            else
+            chatbotMsgTime = c.getHours()+":"+c.getMinutes();
+
+            var chatbotMsgTimeInnerContainerContent = document.createTextNode(chatbotMsgTime);
+
+            chatbotMsgTimeInnerContainer.appendChild(chatbotMsgTimeInnerContainerContent);
+
+            chatbotMsgTimeOuterContainer.appendChild(chatbotMsgTimeInnerContainer);
+
+            chatbotMsgText.appendChild(chatbotMsgTextContent);
+            chatbotMsgText.appendChild(chatbotMsgTimeOuterContainer);
+
+            chatbotMsgBlock.appendChild(chatbotMsgText);
+
+            chatScreen.appendChild(chatbotMsgBlock);
+
+            chatbotMsgBlock.scrollIntoView();// This is to bring the latest chat b/w the user and the bot into view so that one doesn't have to scroll down to see that
+
+        }
+    </script>
+</body>
+</html>
