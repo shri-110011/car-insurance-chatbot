@@ -6,6 +6,7 @@ import { DashBoardComponent } from './dashboard.component';
 import { ChatlogComponent } from './chatlog/chatlog.component';
 import { ChatDetailComponent } from './chat-detail/chat-detail.component';
 import { CarInsuranceDetailsComponent } from './car-insurance-detail/car-insurance-detail.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { CarInsuranceDetailsComponent } from './car-insurance-detail/car-insuran
     ],
     imports: [
         CommonModule,
-        AdminRoutingModule
+        AdminRoutingModule,
+        SharedModule
     ]
 })
 export class AdminModule { }

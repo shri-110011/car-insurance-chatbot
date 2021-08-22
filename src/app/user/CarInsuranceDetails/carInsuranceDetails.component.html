@@ -1,9 +1,13 @@
-<div class="container" *ngIf="!isThereAnyDetails">
+<div class="container" *ngIf="!isThereAnyDetails && !isLoading">
     <div class="row">
         <div class="col-xs-12">
             <h3>You have not applied for any car insurance yet! </h3>
         </div>
     </div>
+</div>
+
+<div *ngIf="isLoading" class="spinner">
+    <app-loading-spinner></app-loading-spinner>
 </div>
 
 <app-car-insurance-details-table 

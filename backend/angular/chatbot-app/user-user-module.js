@@ -21,6 +21,8 @@ class CarInsuranceDetailsTableComponent {
         if (utcDate === null) {
             return utcDate;
         }
+        console.log("######################");
+        console.log(new Date().toString().toLocaleString());
         return new Date(utcDate).toString().slice(0, 33);
     }
 }
@@ -308,16 +310,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _CarInsuranceApplicationForm_carInsurance_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CarInsuranceApplicationForm/carInsurance.service */ "cJKr");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _CarInsuranceDetailsTable_carInsuranceDetailsTable_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CarInsuranceDetailsTable/carInsuranceDetailsTable.component */ "+TO4");
+/* harmony import */ var _shared_loading_spinner_loading_spinner_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/loading-spinner/loading-spinner.component */ "zy28");
+/* harmony import */ var _CarInsuranceDetailsTable_carInsuranceDetailsTable_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CarInsuranceDetailsTable/carInsuranceDetailsTable.component */ "+TO4");
+
 
 
 
 
 
 function MyCarInsuranceDetailsComponent_div_0_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "You have not applied for any car insurance yet! ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -325,17 +329,23 @@ function MyCarInsuranceDetailsComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
-function MyCarInsuranceDetailsComponent_app_car_insurance_details_table_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-car-insurance-details-table", 5);
+function MyCarInsuranceDetailsComponent_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-loading-spinner");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function MyCarInsuranceDetailsComponent_app_car_insurance_details_table_2_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-car-insurance-details-table", 7);
 } if (rf & 2) {
-    const myDetail_r2 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("insuranceDetail", myDetail_r2);
+    const myDetail_r3 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("insuranceDetail", myDetail_r3);
 } }
 class MyCarInsuranceDetailsComponent {
     constructor(carInsuranceService) {
         this.carInsuranceService = carInsuranceService;
         this.myDetails = [];
         this.isThereAnyDetails = false;
+        this.isLoading = true;
     }
     ngOnInit() {
         this.carInsuranceService.getCarInsuranceDetails()
@@ -349,20 +359,24 @@ class MyCarInsuranceDetailsComponent {
             else {
                 this.isThereAnyDetails = false;
             }
+            this.isLoading = false;
         }, (error) => {
             console.error(error);
         });
     }
 }
 MyCarInsuranceDetailsComponent.ɵfac = function MyCarInsuranceDetailsComponent_Factory(t) { return new (t || MyCarInsuranceDetailsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_CarInsuranceApplicationForm_carInsurance_service__WEBPACK_IMPORTED_MODULE_1__["CarInsuranceService"])); };
-MyCarInsuranceDetailsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MyCarInsuranceDetailsComponent, selectors: [["app-my-car-insurance-details"]], decls: 2, vars: 2, consts: [["class", "container", 4, "ngIf"], [3, "insuranceDetail", 4, "ngFor", "ngForOf"], [1, "container"], [1, "row"], [1, "col-xs-12"], [3, "insuranceDetail"]], template: function MyCarInsuranceDetailsComponent_Template(rf, ctx) { if (rf & 1) {
+MyCarInsuranceDetailsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MyCarInsuranceDetailsComponent, selectors: [["app-my-car-insurance-details"]], decls: 3, vars: 3, consts: [["class", "container", 4, "ngIf"], ["class", "spinner", 4, "ngIf"], [3, "insuranceDetail", 4, "ngFor", "ngForOf"], [1, "container"], [1, "row"], [1, "col-xs-12"], [1, "spinner"], [3, "insuranceDetail"]], template: function MyCarInsuranceDetailsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, MyCarInsuranceDetailsComponent_div_0_Template, 5, 0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, MyCarInsuranceDetailsComponent_app_car_insurance_details_table_1_Template, 1, 1, "app-car-insurance-details-table", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, MyCarInsuranceDetailsComponent_div_1_Template, 2, 0, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, MyCarInsuranceDetailsComponent_app_car_insurance_details_table_2_Template, 1, 1, "app-car-insurance-details-table", 2);
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.isThereAnyDetails);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.isThereAnyDetails && !ctx.isLoading);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLoading);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.myDetails);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _CarInsuranceDetailsTable_carInsuranceDetailsTable_component__WEBPACK_IMPORTED_MODULE_3__["CarInsuranceDetailsTableComponent"]], styles: ["*[_ngcontent-%COMP%] {\r\n    margin-top: 10px;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNhckluc3VyYW5jZURldGFpbHMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJjYXJJbnN1cmFuY2VEZXRhaWxzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbn0iXX0= */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _shared_loading_spinner_loading_spinner_component__WEBPACK_IMPORTED_MODULE_3__["LoadingSpinnerComponent"], _CarInsuranceDetailsTable_carInsuranceDetailsTable_component__WEBPACK_IMPORTED_MODULE_4__["CarInsuranceDetailsTableComponent"]], styles: ["*[_ngcontent-%COMP%] {\r\n    margin-top: 10px;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNhckluc3VyYW5jZURldGFpbHMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJjYXJJbnN1cmFuY2VEZXRhaWxzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbn0iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MyCarInsuranceDetailsComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -396,6 +410,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CarInsuranceDetails_carInsuranceDetails_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CarInsuranceDetails/carInsuranceDetails.component */ "5Lut");
 /* harmony import */ var _CarInsuranceDetails_CarInsuranceDetailsTable_carInsuranceDetailsTable_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CarInsuranceDetails/CarInsuranceDetailsTable/carInsuranceDetailsTable.component */ "+TO4");
 /* harmony import */ var _CarInsuranceClaim_carInsuranceClaim_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./CarInsuranceClaim/carInsuranceClaim.component */ "PjPQ");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../shared/shared.module */ "PCNd");
+
 
 
 
@@ -417,7 +433,8 @@ UserModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjecto
             _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
             _user_routing_module__WEBPACK_IMPORTED_MODULE_2__["UserRoutingModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+            _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__["SharedModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](UserModule, { declarations: [_user_component__WEBPACK_IMPORTED_MODULE_3__["UserComponent"],
         _CarInsuranceApplicationForm_carInsuranceApplicationForm_component__WEBPACK_IMPORTED_MODULE_4__["CarInsuranceApplicationFormComponent"],
@@ -427,7 +444,8 @@ UserModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjecto
         _CarInsuranceClaim_carInsuranceClaim_component__WEBPACK_IMPORTED_MODULE_10__["CarInsuranceClaimComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
         _user_routing_module__WEBPACK_IMPORTED_MODULE_2__["UserRoutingModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"]] }); })();
+        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+        _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__["SharedModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UserModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
@@ -437,13 +455,14 @@ UserModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjecto
                     _CarInsuranceApplicationSuccessPage_carInsuranceApplicationSuccessPage_component__WEBPACK_IMPORTED_MODULE_7__["CarInsuranceApplicationSuccessPageComponent"],
                     _CarInsuranceDetails_carInsuranceDetails_component__WEBPACK_IMPORTED_MODULE_8__["MyCarInsuranceDetailsComponent"],
                     _CarInsuranceDetails_CarInsuranceDetailsTable_carInsuranceDetailsTable_component__WEBPACK_IMPORTED_MODULE_9__["CarInsuranceDetailsTableComponent"],
-                    _CarInsuranceClaim_carInsuranceClaim_component__WEBPACK_IMPORTED_MODULE_10__["CarInsuranceClaimComponent"]
+                    _CarInsuranceClaim_carInsuranceClaim_component__WEBPACK_IMPORTED_MODULE_10__["CarInsuranceClaimComponent"],
                 ],
                 imports: [
                     _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                     _user_routing_module__WEBPACK_IMPORTED_MODULE_2__["UserRoutingModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"]
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+                    _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__["SharedModule"]
                 ],
                 providers: [
                     _CarInsuranceApplicationForm_carInsurance_service__WEBPACK_IMPORTED_MODULE_6__["CarInsuranceService"]

@@ -15,6 +15,7 @@ export class ChatDetailComponent implements OnInit, OnDestroy {
   chatDetails: ChatMessageDetail[];
 
   getChatDetailSub: Subscription;
+  isLoading = true;
 
   constructor(private adminHelperService: AdminHelperService) { }
 
@@ -30,6 +31,7 @@ export class ChatDetailComponent implements OnInit, OnDestroy {
     .subscribe(res=> {
       console.log(res);
       this.chatDetails = res;
+      this.isLoading = false;
     })
   }
 

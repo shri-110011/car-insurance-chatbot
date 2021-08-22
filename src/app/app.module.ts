@@ -13,8 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './Forms/Login/login.service';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth-service';
-import { AppMatchFields } from './shared/matchFields.directive';
 import { FooterComponent } from './static-components/footer/footer.component';
+import { SharedModule } from './shared/shared.module';
 // import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
@@ -25,8 +25,7 @@ import { FooterComponent } from './static-components/footer/footer.component';
     ChatbotMsgBlockComponent,
     routingComponents,
     HeaderComponent,
-    FooterComponent,
-    AppMatchFields
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +33,7 @@ import { FooterComponent } from './static-components/footer/footer.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
   ],
   providers: [ChatService, 
               LoginService, 

@@ -14,6 +14,7 @@ export class ChatlogComponent implements OnInit, AfterViewInit, OnDestroy {
   chats: ChatMessage[];
   
   getChatSub: Subscription;
+  isLoading = true;
 
   constructor(private adminHelperService: AdminHelperService) { }
 
@@ -27,6 +28,7 @@ export class ChatlogComponent implements OnInit, AfterViewInit, OnDestroy {
     this.getChatSub = this.adminHelperService.getChat(+this.chatCount.nativeElement.value).subscribe(res=> {
       console.log(res);
       this.chats = res;
+      this.isLoading = false;
     })
   }
   onGetChats() {

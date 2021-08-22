@@ -14,6 +14,7 @@ export class CarInsuranceDetailsComponent implements OnInit, OnDestroy{
     insuranceDetails: InsuranceDetail[];
     totalPolicyHolders = 0;
     getInsuranceDetailSub: Subscription;
+    isLoading = true;
 
     constructor(private adminHelperService: AdminHelperService) { }
 
@@ -29,6 +30,7 @@ export class CarInsuranceDetailsComponent implements OnInit, OnDestroy{
         .subscribe(res=> {
             console.log(res);
             this.insuranceDetails = res;
+            this.isLoading = false
         });
     }
 

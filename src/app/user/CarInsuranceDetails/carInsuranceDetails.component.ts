@@ -10,6 +10,7 @@ import { CarInsuranceDetailsModel } from "./carInsuranceDetails.model";
 export class MyCarInsuranceDetailsComponent implements OnInit{
     myDetails: CarInsuranceDetailsModel[] = [];
     isThereAnyDetails = false;
+    isLoading = true;
 
     constructor(private carInsuranceService: CarInsuranceService) { }
 
@@ -25,6 +26,7 @@ export class MyCarInsuranceDetailsComponent implements OnInit{
                 else{
                     this.isThereAnyDetails = false;
                 }
+                this.isLoading = false;
             }, (error)=>{
                 console.error(error);
             });

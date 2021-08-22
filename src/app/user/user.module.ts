@@ -10,6 +10,7 @@ import { CarInsuranceApplicationSuccessPageComponent } from './CarInsuranceAppli
 import { MyCarInsuranceDetailsComponent } from './CarInsuranceDetails/carInsuranceDetails.component';
 import { CarInsuranceDetailsTableComponent } from './CarInsuranceDetails/CarInsuranceDetailsTable/carInsuranceDetailsTable.component';
 import { CarInsuranceClaimComponent } from './CarInsuranceClaim/carInsuranceClaim.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,14 @@ import { CarInsuranceClaimComponent } from './CarInsuranceClaim/carInsuranceClai
                   CarInsuranceApplicationSuccessPageComponent,
                   MyCarInsuranceDetailsComponent,
                   CarInsuranceDetailsTableComponent,
-                  CarInsuranceClaimComponent
+                  CarInsuranceClaimComponent,
                 ],
   imports: [
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [
     CarInsuranceService
