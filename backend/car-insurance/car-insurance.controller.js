@@ -3,7 +3,9 @@ const carInsuranceDetailsService = require('./car-insurance-services/car-insuran
 const carInsuranceClaimService = require('./car-insurance-services/car-insurance-claim.service');
 
 exports.apply_car_insurance = (req, res)=> {
+    console.log("Inside apply_car_insurance");
     console.log(req.body);
+    console.log(new Date());
     if(req.body.email === req.body.userDataFromToken.email){
             carInsuranceApplyService.apply(req.body)
         .then((result)=> {
@@ -20,6 +22,7 @@ exports.apply_car_insurance = (req, res)=> {
 exports.get_user_car_insurance_details = (req,res)=> {
     console.log("Inside get_user_car_insurance_details");
     console.log(req.body);
+    console.log(new Date());
     carInsuranceDetailsService.userCarInsuranceDetails(req.body.userDataFromToken)
     .then(result=>{
         res.send(result);
