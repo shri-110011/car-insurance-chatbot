@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
     isAdmin = false;
     loginEventSub: Subscription;
     logoutEventSub: Subscription;
+    isNavbarToBeCollapsed = false;
 
     constructor(private authService: AuthService,
                 private router: Router,
@@ -35,6 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
         });
     }
     onLogout() {
+        this.isNavbarToBeCollapsed = !this.isNavbarToBeCollapsed;
         this.logoutEventSub = this.loginService.logout(this.loginService.getLoggedInUser()).subscribe((res)=>{
             console.log(res);
             if(res["logoutStatus"]){
@@ -42,7 +44,10 @@ export class HeaderComponent implements OnInit, OnDestroy{
             }
         })
     }
-
+    toggleNavbar() {
+        console.log("Inside collapseNavbar");
+        this.isNavbarToBeCollapsed = !this.isNavbarToBeCollapsed;
+    }
     ngOnDestroy() {
         this.loginEventSub.unsubscribe();
         this.logoutEventSub.unsubscribe();
