@@ -1,6 +1,6 @@
 var conn = require('../config/database');
 
-function insertChat(chatMessage, chatIntent){
+function insertChat(chatMessage, chatIntent, chatDate){
     //Test data
     // var chatDate = new Date();
     // var chatMessage = "I want to know about car insurance coverages?";
@@ -8,9 +8,9 @@ function insertChat(chatMessage, chatIntent){
 
     getDBConnection().then((res)=> {
         return new Promise((resolve, reject)=> {
-            var sql = "insert into chatlog(chatMessage, chatIntent) values (?, ?)";
+            var sql = "insert into chatlog(chatMessage, chatIntent, chatDate) values (?, ?, ?)";
             let connection = res["connection"];
-            connection.query(sql, [chatMessage, chatIntent], function(err, result){
+            connection.query(sql, [chatMessage, chatIntent, chatDate], function(err, result){
                 if(err){
                     throw err;
                     //console.log("Error occurred!");

@@ -1062,10 +1062,20 @@ class ChatService {
         return this.http.get(this._chatsRetreiveApi);
     }
     postChats(chatMsg) {
-        return this.http.post(this._chatsPostApi, { "user-msg": chatMsg });
+        let chatDateString = this.getDate();
+        return this.http.post(this._chatsPostApi, { "user-msg": chatMsg, "chatDate": chatDateString });
     }
     getResponseForChosenTopic(optionId) {
-        return this.http.post(this._getResponseApi, { "need": optionId });
+        let chatDateString = this.getDate();
+        return this.http.post(this._getResponseApi, { "need": optionId, "chatDate": chatDateString });
+    }
+    getDate() {
+        var x = new Date();
+        var year = x.getFullYear();
+        var month = x.getMonth() < 10 ? 0 + "" + (x.getMonth() + 1) : (x.getMonth() + 1);
+        var date = x.getDate() < 10 ? 0 + "" + x.getDate() : x.getDate();
+        var time = x.toLocaleTimeString();
+        return year + "-" + month + "-" + date + " " + time;
     }
 }
 ChatService.ɵfac = function ChatService_Factory(t) { return new (t || ChatService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };

@@ -11,7 +11,7 @@ exports.get_response_for_topics_chosen = (req, res)=> {
     //res.send([]);
     var chatMsg = "Bot provided option selected.";
     if(need!="intro")
-        chatService.insertChat(chatMsg, need, new Date());
+        chatService.insertChat(chatMsg, need, req.body["chatDate"]);
     // console.log("***");
     // console.log("###");
     res.send(chatbotMsg.getResponseForTopicsChosen(req.body.need));//Here we are passing the id attribute of the selected option which in this case is our intent
@@ -25,7 +25,7 @@ exports.post_chat = (req, res)=> {
     var responseObject = chatbotMsg.getResponseForUserChatMsg(req.body['user-msg']);
     
     //Call to the database service
-    chatService.insertChat(userChatMsg, responseObject.intent);
+    chatService.insertChat(userChatMsg, responseObject.intent, req.body["chatDate"]);
     
     res.send(responseObject.resMsg);
 }

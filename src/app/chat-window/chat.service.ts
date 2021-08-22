@@ -17,10 +17,21 @@ export class ChatService {
   }
 
   postChats(chatMsg: string): Observable<string[]>{
-    return this.http.post<string[]>(this._chatsPostApi, {"user-msg": chatMsg});
+    let chatDateString = this.getDate();
+    return this.http.post<string[]>(this._chatsPostApi, {"user-msg": chatMsg, "chatDate": chatDateString});
   }
 
   getResponseForChosenTopic(optionId: string): Observable<string[]> {
-    return this.http.post<string[]>(this._getResponseApi, {"need": optionId});
+    let chatDateString = this.getDate();
+    return this.http.post<string[]>(this._getResponseApi, {"need": optionId, "chatDate": chatDateString});
   }
+
+  getDate() {
+    var x = new Date();
+    var year = x.getFullYear();
+    var month = x.getMonth()<10? 0+""+(x.getMonth()+1): (x.getMonth()+1);
+    var date = x.getDate()<10? 0+""+x.getDate(): x.getDate();
+    var time = x.toLocaleTimeString();
+    return year+"-"+month+"-"+date+" "+time;
+}
 }
