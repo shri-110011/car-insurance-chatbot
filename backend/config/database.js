@@ -6,7 +6,7 @@ function getConnection(){
         password: process.env.Pwd,
         database: process.env.DB,
         port: process.env.MySQL_Port,
-        timezone: 'utc',
+        timezone: '+05:30',
         multipleStatements: true
     });
     return connection;
