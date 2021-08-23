@@ -2,16 +2,19 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.component";
 import { AppMatchFields } from "./matchFields.directive";
+import { NavbarCollapseDirective } from "./navbarCollapse.directive";
 
 @NgModule({
     declarations: [
         AppMatchFields,
-        LoadingSpinnerComponent
+        LoadingSpinnerComponent,
+        NavbarCollapseDirective
     ],
     imports: [CommonModule],
     exports: [
         AppMatchFields,
-        LoadingSpinnerComponent
+        LoadingSpinnerComponent,
+        NavbarCollapseDirective
     ]
 })
 export class SharedModule {

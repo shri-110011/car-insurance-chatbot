@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { AuthService } from "src/app/auth-service";
@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit, OnDestroy{
     isAdmin = false;
     loginEventSub: Subscription;
     logoutEventSub: Subscription;
-    isNavbarToBeCollapsed = false;
 
     constructor(private authService: AuthService,
                 private router: Router,
@@ -36,17 +35,12 @@ export class HeaderComponent implements OnInit, OnDestroy{
         });
     }
     onLogout() {
-        this.isNavbarToBeCollapsed = !this.isNavbarToBeCollapsed;
         this.logoutEventSub = this.loginService.logout(this.loginService.getLoggedInUser()).subscribe((res)=>{
             console.log(res);
             if(res["logoutStatus"]){
                 this.authService.loggedOutEvent.emit();
             }
         })
-    }
-    toggleNavbar() {
-        console.log("Inside collapseNavbar");
-        this.isNavbarToBeCollapsed = !this.isNavbarToBeCollapsed;
     }
     ngOnDestroy() {
         this.loginEventSub.unsubscribe();

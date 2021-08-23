@@ -11,8 +11,8 @@ export class AuthService {
     // userName = "";
     // isAdmin = false;
 
-    loggedInEvent = new  EventEmitter<LoggedInUser>();
-    loggedOutEvent = new EventEmitter<void>();
+    loggedInEvent:EventEmitter<LoggedInUser> = new EventEmitter<LoggedInUser>();
+    loggedOutEvent:EventEmitter<void> = new EventEmitter<void>();
 
     constructor(private http: HttpClient) { }
 
