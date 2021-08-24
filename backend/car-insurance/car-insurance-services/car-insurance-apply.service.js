@@ -14,7 +14,7 @@ const getConnectionObject = (insuranceDetails)=> {
                 resolve(metaObject);
                 throw err;
             }
-            console.log("Connection established");
+            console.log("Connection established!");
             metaObject.status = true;
             resolve(metaObject);
         });

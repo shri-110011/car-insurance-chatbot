@@ -42,7 +42,7 @@ var getDBConnection = ()=> {
             if(err)
                 throw err;
             res["connection"] = connection;
-            console.log("Connection established");
+            console.log("Connection established!");
             resolve(res);
         });
     });

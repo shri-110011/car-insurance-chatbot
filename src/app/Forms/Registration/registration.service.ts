@@ -1,11 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class RegistrationService {
 
-    private _registerUserApi = "http://localhost:3000/user/register";
+    private _registerUserApi = environment.apiURL+"user/register";
 
     constructor(private http: HttpClient) { }
 

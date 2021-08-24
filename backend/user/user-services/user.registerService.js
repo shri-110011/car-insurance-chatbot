@@ -14,7 +14,7 @@ const getConnectionObject = (user) => {
                 resolve(metaObject);
                 throw err;
             }
-            console.log("Connection established");
+            console.log("Connection established!");
             metaObject.status = true;
             resolve(metaObject);
         });
@@ -26,7 +26,7 @@ const insertUser = (res) => {
         // console.log(res);
         var connection = res.connection;
         if(res.status){
-            var sql = "insert into Users(emailId, userName, password) values (?, ?, ?)";
+            var sql = "insert into users(emailId, userName, password) values (?, ?, ?)";
             var user = res.user
             connection.query(sql, [user.email, user.name, user.password], function(err, result){
                 if(err){
@@ -76,7 +76,7 @@ const checkEmailUniqueness = (res) => {
         if(res.status){
             console.log("Inside checkEmailUniqueness");
             var connection = res.connection;
-            var sql = "select * from Users where EmailId = ? ";
+            var sql = "select * from users where EmailId = ? ";
             var email = res.user.email;
             //console.log(res.user.email)
             connection.query(sql, [email], (err, result)=>{
@@ -87,15 +87,18 @@ const checkEmailUniqueness = (res) => {
                     throw err;
                 }
                 else{
-                    console.log(result)
+                    if(result.length>0) {
+                        console.log("Details about already existing user");
+                        console.log(result);
+                    }
                 }
-                console.log(result.length);
+                // console.log(result.length);
                 if(result.length !== 0) {
                     res.status = false;
                     res.duplicateEmail = true;
                 }
-                console.log(res.status);
-                console.log(res.duplicateEmail);
+                // console.log(res.status);
+                // console.log(res.duplicateEmail);
                 resolve(res);
             });
         }

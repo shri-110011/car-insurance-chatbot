@@ -7,6 +7,7 @@ const getInsuranceDetail = ()=> {
             if(err){
                 throw error;
             }
+            console.log("Connection established!");
             var sql = "select insurancePlan, count(*) insuranceCount from customers group by insurancePlan;";
             connection.query(sql, (err, resultSet)=> {
                 if(err){
@@ -42,6 +43,7 @@ const userCarInsuranceDetails = (userDataFromToken)=> {
             if(err) {
                 throw err;
             }
+            console.log("Connection established!");
             var sql = "select * from customers where email = ?";
             connection.query(sql, [userDataFromToken.email], (err, resultSet)=> {
                 if(err){
