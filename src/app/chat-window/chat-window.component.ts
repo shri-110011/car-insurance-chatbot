@@ -92,7 +92,7 @@ export class ChatWindowComponent implements AfterViewInit, OnDestroy{
             ChatbotMsgBlockComponent
         );
         const componentRef = this.target.createComponent(factory);
-        componentRef.instance.chatbotMsg= this.sanitizer.bypassSecurityTrustHtml(message);
+        componentRef.instance.chatbotMsg = this.sanitizer.bypassSecurityTrustHtml(message);
         componentRef.instance.optionWasSelected.subscribe(event=>this.onOptionWasSelected(event));
     }
 
