@@ -7,10 +7,9 @@
 }
 footer {
   width: 100%;
-  position: relative;
-  /* bottom: 0px;
-  left: 0; */
-  top: 100px;
+  position: fixed;
+  bottom: 0px;
+  /* left: 0; */
   background: #000;
 }
 footer .bottom {
