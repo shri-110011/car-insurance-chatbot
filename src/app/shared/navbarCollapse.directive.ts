@@ -26,7 +26,7 @@ export class NavbarCollapseDirective {
         }
         else {
             console.log("Inside navbarCollapse.directive.ts else");
-            if(window.innerWidth<768){
+            if(window.innerWidth<920){
                 this.isIn = this.el.nativeElement.contains(event.target)?!this.isIn:false;
             }
         }
