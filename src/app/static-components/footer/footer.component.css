@@ -7,11 +7,12 @@
 }
 footer{
   width: 100%;
-  position: relative;
-  /* bottom: 0px;
-  left: 0; */
-  top: 100px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  /* top: 100px; */
   background: #000;
+  overflow:hidden;
 }
 footer .bottom {
     width: 100%;
