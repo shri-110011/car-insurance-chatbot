@@ -7,8 +7,3 @@ body {
     margin-top: 80px;
     padding-bottom: 60px;
 }
-@media (max-width: 350px) {
-    body{
-        width: 500px;
-    }
-}
