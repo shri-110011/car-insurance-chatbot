@@ -170,6 +170,7 @@ class ChatDetailComponent {
     constructor(adminHelperService) {
         this.adminHelperService = adminHelperService;
         this.totalChats = 0;
+        this.chatDetails = [];
         this.isLoading = true;
     }
     ngOnInit() {
@@ -311,6 +312,7 @@ function CarInsuranceDetailsComponent_h3_16_Template(rf, ctx) { if (rf & 1) {
 class CarInsuranceDetailsComponent {
     constructor(adminHelperService) {
         this.adminHelperService = adminHelperService;
+        this.insuranceDetails = [];
         this.totalPolicyHolders = 0;
         this.isLoading = true;
     }

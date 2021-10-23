@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class ChatDetailComponent implements OnInit, OnDestroy {
 
   totalChats = 0;
-  chatDetails: ChatMessageDetail[];
+  chatDetails: ChatMessageDetail[] = [];
 
   getChatDetailSub: Subscription;
   isLoading = true;

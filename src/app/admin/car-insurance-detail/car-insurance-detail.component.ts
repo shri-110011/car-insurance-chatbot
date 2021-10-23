@@ -11,7 +11,7 @@ import { InsuranceDetail } from "../info-structure";
 })
 export class CarInsuranceDetailsComponent implements OnInit, OnDestroy{
 
-    insuranceDetails: InsuranceDetail[];
+    insuranceDetails: InsuranceDetail[] = [];
     totalPolicyHolders = 0;
     getInsuranceDetailSub: Subscription;
     isLoading = true;
