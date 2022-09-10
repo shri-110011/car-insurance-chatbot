@@ -22,7 +22,7 @@ answers={
         "<h3>Third-Party Plan Coverages</h3><ul><li>Personal Injuries or Death in an Accident</li><li>Injuries/Death of Third-Party</li><li>Damage to Third-Party property</li></ul>"
     ],
     "insurance-pricing":[
-        "<h3>For third party car insurance plan:</h3><apan>Monthly premium: <b>Rs 1500</b></span><br><span>Annual premium: <b>Rs 16500</b></span>", "<h3>For comprehensive car insurance plan:</h3><span>Monthly premium: <b>Rs 4000</b></span><br><span>Annual premium: <b>Rs 4400</b></span>"
+        "<h3>For third party car insurance plan:</h3><apan>Monthly premium: <b>Rs 1500</b></span><br><span>Annual premium: <b>Rs 16500</b></span>", "<h3>For comprehensive car insurance plan:</h3><span>Monthly premium: <b>Rs 4000</b></span><br><span>Annual premium: <b>Rs 44000</b></span>"
     ]
     ,
     "why-car-insurance":[
