@@ -18,17 +18,17 @@ export class CarInsuranceDetailsModel {
     
     constructor(){
         this.aadhaarNo = null;
-        this.customerName = '';
-        this.street = '';
-        this.city = '';
+        this.customerName = null;
+        this.street = null;
+        this.city = null;
         this.pincode = null;
-        this.state = '';
+        this.state = null;
         this.country = null;
         this.phone = null;
-        this.email = '';
-        this.carModel = '',
-        this.licensePlateNo = '',
-        this.insurancePlan = '',
+        this.email =null;
+        this.carModel = null,
+        this.licensePlateNo = null,
+        this.insurancePlan = null,
         this.insuranceId = null;
         this.claimStatus = null;
     }

@@ -1,17 +1,31 @@
 <div class="container">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <div id="chat-window">
-                <div id="chat-screen">
-                    <ng-template #chatMsgRef></ng-template>     
-                </div>
-                <div id="chat-console">
-                    <div id="chat-field">
-                        <textarea  #userMsgRef id="user-msg" name="user-msg" value="" style="width:100%; margin:2px; padding:5px; resize:none"></textarea> 
-                    </div>
-                    <div id="ask-btn"><button type="button" class="btn btn-primary" (click)="onAsk(userMsgRef)">Ask</button></div> 
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div id="chat-window">
+        <div id="chat-screen">
+          <ng-template #chatMsgRef></ng-template>
         </div>
+        <div id="chat-console">
+          <div id="chat-field">
+            <textarea
+              #userMsgRef
+              id="user-msg"
+              name="user-msg"
+              value=""
+              style="width: 100%; margin: 2px; padding: 5px; resize: none"
+            ></textarea>
+          </div>
+          <div id="ask-btn">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="onAsk(userMsgRef)"
+            >
+              Ask
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

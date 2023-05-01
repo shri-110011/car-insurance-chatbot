@@ -9,51 +9,155 @@
       {{ registrationForm.get('confirm_password').valid }}
       {{ registrationForm.touched  }} -->
       <div class="user-details">
-        <div class="input-box has-error" 
-        >
+        <div class="input-box has-error">
           <span class="details">Username</span>
-          <input type="text" placeholder="Enter your username" formControlName="name" autocomplete="on">
-          <div *ngIf="registrationForm.get('name').invalid && registrationForm.get('name').touched"
+          <input
+            type="text"
+            placeholder="Enter your username"
+            formControlName="name"
+            autocomplete="on"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('name').invalid &&
+              registrationForm.get('name').touched
+            "
           >
-            <small *ngIf="registrationForm.get('name').errors.required" class="text-danger">Name is required. </small>
-            <small *ngIf="registrationForm.get('name').errors.minlength" class="text-danger">Name must be atleast 3 characters long. </small>
-            <small *ngIf="registrationForm.get('name').errors.maxlength" class="text-danger">Name can't be more than 30 characters long. </small>
-            <small *ngIf="registrationForm.get('name').errors.pattern" class="text-danger">Name can contain only the alphabets.</small>
+            <small
+              *ngIf="registrationForm.get('name').errors.required"
+              class="text-danger"
+              >Name is required.
+            </small>
+            <small
+              *ngIf="registrationForm.get('name').errors.minlength"
+              class="text-danger"
+              >Name must be atleast 3 characters long.
+            </small>
+            <small
+              *ngIf="registrationForm.get('name').errors.maxlength"
+              class="text-danger"
+              >Name can't be more than 30 characters long.
+            </small>
+            <small
+              *ngIf="registrationForm.get('name').errors.pattern"
+              class="text-danger"
+              >Name can contain only the alphabets.</small
+            >
           </div>
-        </div><br>
+        </div>
+        <br />
         <div class="input-box">
           <span class="details">Email Id</span>
-          <input type="text" placeholder="Enter your email" formControlName="email">
-          <div *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched"
+          <input
+            type="text"
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('email').invalid &&
+              registrationForm.get('email').touched
+            "
           >
-            <small *ngIf="registrationForm.get('email').errors.required" class="text-danger">Email is required. </small>
-            <small *ngIf="registrationForm.get('email').errors.pattern" class="text-danger">Invalid email.</small>
+            <small
+              *ngIf="registrationForm.get('email').errors.required"
+              class="text-danger"
+              >Email is required.
+            </small>
+            <small
+              *ngIf="registrationForm.get('email').errors.pattern"
+              class="text-danger"
+              >Invalid email.</small
+            >
           </div>
-        </div><br>
+        </div>
+        <br />
         <div class="input-box">
           <span class="details">Password</span>
-          <input type="text" placeholder="Enter your password" name="password" formControlName="password" (input)="registrationForm.get('confirm_password').updateValueAndValidity()">
-          <div *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched">
-            <small *ngIf="registrationForm.get('password').errors.required" class="text-danger">Password is required. </small>
-            <small *ngIf="registrationForm.get('password').errors.minlength" class="text-danger">Password must be between 6-15 characters. </small>
-            <small *ngIf="registrationForm.get('password').errors.pattern" class="text-danger">Password can contain only alphabets, digits and _(underscore).</small>
+          <input
+            type="text"
+            placeholder="Enter your password"
+            name="password"
+            formControlName="password"
+            (input)="
+              registrationForm.get('confirm_password').updateValueAndValidity()
+            "
+          />
+          <div
+            *ngIf="
+              registrationForm.get('password').invalid &&
+              registrationForm.get('password').touched
+            "
+          >
+            <small
+              *ngIf="registrationForm.get('password').errors.required"
+              class="text-danger"
+              >Password is required.
+            </small>
+            <small
+              *ngIf="registrationForm.get('password').errors.minlength"
+              class="text-danger"
+              >Password must be between 6-15 characters.
+            </small>
+            <small
+              *ngIf="registrationForm.get('password').errors.pattern"
+              class="text-danger"
+              >Password can contain only alphabets, digits and
+              _(underscore).</small
+            >
           </div>
-        </div><br>
+        </div>
+        <br />
         <div class="input-box">
           <span class="details">Confirm Password</span>
-          <input type="text" placeholder="Confirm your password" formControlName="confirm_password" appMatchFields="password">
-          <div *ngIf="registrationForm.get('confirm_password').invalid && registrationForm.get('confirm_password').touched"
+          <!-- The value given to the 'appMatchFields' directive is the
+          formControlName for the password input field which is
+          'password' in this case. -->
+          <input
+            type="text"
+            placeholder="Confirm your password"
+            formControlName="confirm_password"
+            appMatchFields="password"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('confirm_password').invalid &&
+              registrationForm.get('confirm_password').touched
+            "
           >
-            <small *ngIf="registrationForm.get('confirm_password').errors.required" class="text-danger">Confirm password is required. </small>
-            <small *ngIf="registrationForm.get('confirm_password').errors.notEqual" class="text-danger">Confirm password does match password.</small>
+            <small
+              *ngIf="registrationForm.get('confirm_password').errors.required"
+              class="text-danger"
+              >Confirm password is required.
+            </small>
+            <small
+              *ngIf="registrationForm.get('confirm_password').errors.notEqual"
+              class="text-danger"
+              >Confirm password does match password.</small
+            >
           </div>
-        </div><br>
+        </div>
+        <br />
       </div>
-      <small class="text-danger" *ngIf="duplicateEmail">This email already exists! </small>
-      <small class="text-danger" *ngIf="registrationForm.invalid && invalidBtnPress">Please fill in all the required fields! </small>
-      <small class="text-success" *ngIf="!invalidBtnPress && registrationSuccessful && registrationForm.untouched">You have been registered successfully! Now you can login. </small>
+      <small class="text-danger" *ngIf="duplicateEmail"
+        >This email already exists!
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="registrationForm.invalid && invalidBtnPress"
+        >Please fill in all the required fields!
+      </small>
+      <small
+        class="text-success"
+        *ngIf="
+          !invalidBtnPress &&
+          registrationSuccessful &&
+          registrationForm.untouched
+        "
+        >You have been registered successfully! Now you can login.
+      </small>
       <div class="button">
-        <input type="submit" value="Register">
+        <input type="submit" value="Register" />
       </div>
     </form>
   </div>

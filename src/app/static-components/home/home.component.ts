@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { AuthService } from "src/app/auth-service";
+import { environment } from "src/environments/environment";
 
 @Component({
     selector: "app-home",
@@ -12,6 +13,8 @@ export class HomeComponent implements OnInit {
     userLoggedIn = false;
     loginEventSub: Subscription;
     logoutEventSub: Subscription;
+
+    carsCrashImgUrl = environment.apiURL+'public/images/car-crash.jpg'
     
     constructor(private authService: AuthService) { }
     

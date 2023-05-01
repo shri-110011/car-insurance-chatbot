@@ -1,50 +1,46 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-            <form #carInsuranceClaimForm="ngForm" (ngSubmit)="onClaim()">
-                <div class="form-group" 
-                    [class.has-error]="carInsuranceClaimForm.invalid && carInsuranceClaimForm.touched"
-                >
-                    <label for="insuranceId">Enter the insurance id</label>
-                    <input 
-                        type="text" 
-                        id="insuranceId" 
-                        name="insuranceId"
-                        class="form-control"
-                        ngModel
-                        required
-                        pattern="[0-9]{7,7}"
-                    >
-                    <span 
-                        class="help-text text-danger"
-                        *ngIf="carInsuranceClaimForm.invalid && carInsuranceClaimForm.touched"
-                    >
-                        Insurance id is invalid !
-                    </span>
-                </div>
-                <button 
-                    class="btn btn-primary" 
-                    [disabled]="carInsuranceClaimForm.invalid"
-                >Claim Insurance</button>
-                <h3 
-                    class="text-success"
-                    *ngIf="claimSuccessful"
-                >
-                    Insurance claimed successfully!
-                </h3>
-                <h3 
-                    class="text-warning"
-                    *ngIf="claimedAlready"
-                >
-                    Insurance has already been claimed against this Insurance Id!
-                </h3>
-                <h3 
-                    class="text-danger"
-                    *ngIf="invalidClaim"
-                >
-                    Invalid Insurance Id!
-                </h3>
-            </form>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <form #carInsuranceClaimForm="ngForm" (ngSubmit)="onClaim()">
+        <div
+          class="form-group"
+          [class.has-error]="
+            carInsuranceClaimForm.invalid && carInsuranceClaimForm.touched
+          "
+        >
+          <label for="insuranceId">Enter the insurance id</label>
+          <input
+            type="text"
+            id="insuranceId"
+            name="insuranceId"
+            class="form-control"
+            ngModel
+            required
+            pattern="[0-9]{7,7}"
+          />
+          <span
+            class="help-text text-danger"
+            *ngIf="
+              carInsuranceClaimForm.invalid && carInsuranceClaimForm.touched
+            "
+          >
+            Insurance id is invalid !
+          </span>
         </div>
+        <button
+          class="btn btn-primary"
+          [disabled]="carInsuranceClaimForm.invalid"
+        >
+          Claim Insurance
+        </button>
+        <h3 class="text-success" *ngIf="claimSuccessful">
+          Insurance claimed successfully!
+        </h3>
+        <h3 class="text-warning" *ngIf="claimedAlready">
+          Insurance has already been claimed against this Insurance Id!
+        </h3>
+        <h3 class="text-danger" *ngIf="invalidClaim">Invalid Insurance Id!</h3>
+      </form>
     </div>
+  </div>
 </div>

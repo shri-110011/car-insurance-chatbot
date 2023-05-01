@@ -1,95 +1,97 @@
 <div class="container">
-    <div class="alert alert-success">
-        Car Insurance applied <strong>successfully!</strong>
-    </div>
-    <!-- <h2 class="text-success">Car Insurance applied successfully!</h2> -->
-    <div class="row">
-        <div class="col-xs-12 col-sm-6">
-            <div class="insurance-details">
-                <h3>Car Insuarance Details:</h3>
-                <!-- <p>Insurance Id: {{ ci_details.insuranceId }}</p>
+  <div class="alert alert-success">
+    Car Insurance applied <strong>successfully!</strong>
+  </div>
+  <!-- <h2 class="text-success">Car Insurance applied successfully!</h2> -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="insurance-details">
+        <h3>Car Insuarance Details:</h3>
+        <!-- <p>Insurance Id: {{ ci_details.insuranceId }}</p>
                 <p>Insured Car Model: {{ ci_details.carModel }}</p>
                 <p>Insured Car License Plate Number: {{ ci_details.licensePlateNo }}</p>
                 <p>Insurance Type: {{ ci_details.insuranceType }}</p>
                 <p>Insurance applied date: {{ ci_details.insuranceAppliedDate }}</p> -->
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Insurance Id</th>
-                            <th>Insured Car Model</th>
-                            <th>Insured Car License Plate Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ ci_details.insuranceId }}</td>
-                            <td>{{ ci_details.carModel }}</td>
-                            <td>{{ ci_details.licensePlateNo }}</td>
-                        </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th>Insurance Type</th>
-                            <th colspan="2">Insurance applied date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ ci_details.insurancePlan }}</td>
-                            <td colspan="2">{{ getInsuranceAppliedDate(ci_details.insuranceAppliedDate) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-            <div class="applicant-details">
-                <h3>Applicant Details:</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Name</th>
-                            <th>Aadhaar No</th>
-                            <th>Email</th>
-                            <th>Phone Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="2">{{ ci_details.customerName }}</td>
-                            <td>{{ ci_details.aadhaarNo }}</td>
-                            <td>{{ ci_details.email }}</td>
-                            <td>{{ ci_details.phone }}</td>
-                        </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th colspan="3">Street</th>
-                            <th>City</th>
-                            <th>Pincode</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="3">{{ ci_details.address.street }}</td>
-                            <td>{{ ci_details.address.city }}</td>
-                            <td>{{ ci_details.address.pincode }}</td>
-                        </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th colspan="3">State</th>
-                            <th colspan="2">Country</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="3">{{ ci_details.address.state }}</td>
-                            <td colspan="2">{{ ci_details.address.country }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- <p>Name: {{ ci_details.name }}</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Insurance Id</th>
+              <th>Insured Car Model</th>
+              <th>Insured Car License Plate Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ ci_details.insuranceId }}</td>
+              <td>{{ ci_details.carModel }}</td>
+              <td>{{ ci_details.licensePlateNo }}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th>Insurance Type</th>
+              <th colspan="2">Insurance applied date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ ci_details.insurancePlan }}</td>
+              <td colspan="2">
+                {{ getInsuranceAppliedDate(ci_details.insuranceAppliedDate) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+      <div class="applicant-details">
+        <h3>Applicant Details:</h3>
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2">Name</th>
+              <th>Aadhaar No</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">{{ ci_details.customerName }}</td>
+              <td>{{ ci_details.aadhaarNo }}</td>
+              <td>{{ ci_details.email }}</td>
+              <td>{{ ci_details.phone }}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th colspan="3">Street</th>
+              <th>City</th>
+              <th>Pincode</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3">{{ ci_details.address.street }}</td>
+              <td>{{ ci_details.address.city }}</td>
+              <td>{{ ci_details.address.pincode }}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th colspan="3">State</th>
+              <th colspan="2">Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3">{{ ci_details.address.state }}</td>
+              <td colspan="2">{{ ci_details.address.country }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <p>Name: {{ ci_details.name }}</p>
                 <p>Aadhaar No: {{ ci_details.aadhaar }}</p>
                 <p>Email: {{ ci_details.email }}</p>
                 <p>Phone Number: {{ ci_details.phone }}</p>
@@ -98,7 +100,7 @@
                 <p>Pincode: {{ ci_details.address.pincode }}</p>
                 <p>State: {{ ci_details.address.state }}</p>
                 <p>Country: {{ ci_details.address.country }}</p> -->
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>

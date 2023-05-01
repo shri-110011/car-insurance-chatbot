@@ -3,6 +3,5 @@ export interface LoggedInUser {
     userName: string,
     isAdmin: boolean,
     token?: string,
-    tokenValidity?: boolean,
     expiresIn?: number
 }

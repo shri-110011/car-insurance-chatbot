@@ -1,32 +1,37 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-1 table-responsive" style="overflow-y: scroll; height: 300px; border: 1px solid black;">
-        <table class="table table-border">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Intent</th>
-                    <th>No of Chats</th>
-                    <th>Percentage %</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let chatDetail of chatDetails, let i = index ">
-                    <td>{{ i+1 }}</td>
-                    <td>{{ chatDetail.chatIntent }}</td>
-                    <td>{{ chatDetail.chatCount }}</td>
-                    <td>{{ getChatPercentage(chatDetail.chatCount) }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div *ngIf="isLoading" class="spinner">
-            <app-loading-spinner></app-loading-spinner>
-        </div>
-        <h3 style="text-align: center;" *ngIf="!(chatDetails.length>0) && !isLoading">There are no chat details!</h3>
+  <div
+    class="col-md-6 col-md-offset-1 table-responsive"
+    style="overflow-y: scroll; height: 300px; border: 1px solid black"
+  >
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Intent</th>
+          <th>No of Chats</th>
+          <th>Percentage %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let chatDetail of chatDetails; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ chatDetail.chatIntent }}</td>
+          <td>{{ chatDetail.chatCount }}</td>
+          <td>{{ getChatPercentage(chatDetail.chatCount) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isLoading" class="spinner">
+      <app-loading-spinner></app-loading-spinner>
     </div>
-    <div class="col-md-3 col-md-offset-1">
-        <h3>Total chats asked: {{ totalChats }}</h3>
-    </div>
+    <h3
+      style="text-align: center"
+      *ngIf="!(chatDetails.length > 0) && !isLoading"
+    >
+      There are no chat details!
+    </h3>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <h3>Total chats asked: {{ totalChats }}</h3>
+  </div>
 </div>
-
-
-

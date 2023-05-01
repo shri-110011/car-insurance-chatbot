@@ -1,38 +1,43 @@
 <div class="row">
-    <div class="col-md-9" style="overflow-y: scroll; height: 300px; border: 1px solid black;">
-        <table class="table table-border">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Chat Message</th>
-                    <th>Chat Intent</th>
-                    <th>Chat Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let chat of chats, let i = index">
-                    <td>{{ i+1 }}</td>
-                    <td>{{ chat.chatMessage }}</td>
-                    <td>{{ chat.chatIntent}}</td>
-                    <td>{{ getChatDate(chat.chatDate) }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div *ngIf="isLoading" class="spinner">
-            <app-loading-spinner></app-loading-spinner>
-        </div>
-        <h3 style="text-align: center;" *ngIf="!(chats.length>0) && !isLoading">There are no chats!</h3>
+  <div
+    class="col-md-9"
+    style="overflow-y: scroll; height: 300px; border: 1px solid black"
+  >
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Chat Message</th>
+          <th>Chat Intent</th>
+          <th>Chat Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let chat of chats; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ chat.chatMessage }}</td>
+          <td>{{ chat.chatIntent }}</td>
+          <td>{{ getChatDate(chat.chatDate) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isLoading" class="spinner">
+      <app-loading-spinner></app-loading-spinner>
     </div>
-    <div class="col-md-3">
-        <div class="form-group">
-            <label for="">Select the number of latest chats you want to see: </label>
-                <select class="form-control" #chatCount>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                </select><br>
-                <button class="btn btn-primary" (click)="onGetChats()">Get Chats</button><br>
-        </div>
+    <h3 style="text-align: center" *ngIf="!(chats.length > 0) && !isLoading">
+      There are no chats!
+    </h3>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="">Select the number of latest chats you want to see: </label>
+      <select class="form-control" #chatCount>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option></select
+      ><br />
+      <button class="btn btn-primary" (click)="onGetChats()">Get Chats</button
+      ><br />
     </div>
+  </div>
 </div>
-

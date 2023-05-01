@@ -1,32 +1,37 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-1 table-responsive" style="height: 200px; border: 1px solid black;">
-        <table class="table table-border">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Type of Insurance</th>
-                    <th>No of policy holders</th>
-                    <th>Percentage %</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let insuranceDetail of insuranceDetails, let i = index ">
-                    <td>{{ i+1 }}</td>
-                    <td>{{ insuranceDetail.insurancePlan }}</td>
-                    <td>{{ insuranceDetail.insuranceCount }}</td>
-                    <td>{{ getChatPercentage(insuranceDetail.insuranceCount) }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div *ngIf="isLoading" class="spinner">
-            <app-loading-spinner></app-loading-spinner>
-        </div>
-        <h3 style="text-align: center;" *ngIf="!(insuranceDetails.length>0) && !isLoading">There are no insurance details!</h3>
+  <div
+    class="col-md-6 col-md-offset-1 table-responsive"
+    style="height: 200px; border: 1px solid black"
+  >
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Type of Insurance</th>
+          <th>No of policy holders</th>
+          <th>Percentage %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let insuranceDetail of insuranceDetails; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ insuranceDetail.insurancePlan }}</td>
+          <td>{{ insuranceDetail.insuranceCount }}</td>
+          <td>{{ getChatPercentage(insuranceDetail.insuranceCount) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isLoading" class="spinner">
+      <app-loading-spinner></app-loading-spinner>
     </div>
-    <div class="col-md-3 col-md-offset-1">
-        <h3>Total policies applied: {{ totalPolicyHolders }}</h3>
-    </div>
+    <h3
+      style="text-align: center"
+      *ngIf="!(insuranceDetails.length > 0) && !isLoading"
+    >
+      There are no insurance details!
+    </h3>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <h3>Total policies applied: {{ totalPolicyHolders }}</h3>
+  </div>
 </div>
-
-
-
